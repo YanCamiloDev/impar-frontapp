@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
-import TesteImg from '../../../public/logo-teste.svg';
+import TesteImg from '../../assets/logo-teste.svg';
 
 export default function Header() {
 
