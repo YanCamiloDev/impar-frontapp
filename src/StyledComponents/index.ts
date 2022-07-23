@@ -2,11 +2,33 @@ import styled from "styled-components";
 type PRIMARY_COLOR = '#5F1478';
 type ALT_COLOR = '#263238';
 
+export const DefaultLayout = styled.div`
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-rows: 1fr 9fr;
+  grid-template-columns: 100vw;
+`
+
 export const Corpo = styled.div`
   grid-area: main;
   background: #F6F4F6 0% 0% no-repeat padding-box;
   opacity: 1;
 `
+
+export const HeaderStyled = styled.div`
+  grid-area: header;
+  background-color: #000;
+  background: linear-gradient(to bottom right, #601478, #A92670);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  border-bottom: 1px solid ;
+`
+
 
 export const ContainerFlex = styled.div<{ ai?: string; mt?: string; width?: string; fw?: string; jc?: string; fd?: string }>`
   display: flex;

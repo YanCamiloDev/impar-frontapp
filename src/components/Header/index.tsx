@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import TesteImg from '../../assets/logo-teste.svg';
+import { HeaderStyled } from '../../StyledComponents';
 
 export default function Header() {
 
@@ -11,13 +11,3 @@ export default function Header() {
   )
 }
 
-const HeaderStyled = styled.div`
-  grid-area: header;
-  background-color: #000;
-  background: linear-gradient(to bottom right, #601478, #A92670);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  display: flex;
-  padding: 10px 20px;
-  align-items: center;
-  border-bottom: 1px solid ;
-`

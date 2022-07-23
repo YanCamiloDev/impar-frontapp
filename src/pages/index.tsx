@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { DefaultLayout } from '../components/DefaultLayout';
 import Header from '../components/Header';
 import SearchComponent from '../components/SearchComponent';
 import Icone from '../assets/icone.png';
-import { Button, ContainerFlex, Corpo, Text } from '../StyledComponents';
+import { Button, ContainerFlex, Corpo, DefaultLayout, Text } from '../StyledComponents';
 import PokeCard from '../components/PokeCard';
 
 export default function Home() {
