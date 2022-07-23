@@ -8,7 +8,9 @@ export type AllDataPokemons =
 
 
 export type Pokemon = {
-  sprintes: {
+  id:number;
+  name:string;
+  sprites: {
     back_default: string,
     back_female: null,
     back_shiny: string,

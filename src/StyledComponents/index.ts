@@ -16,6 +16,7 @@ export const Corpo = styled.div`
   grid-area: main;
   background: #F6F4F6 0% 0% no-repeat padding-box;
   opacity: 1;
+  margin-top: 58px;
 `
 
 export const HeaderStyled = styled.div`
@@ -27,6 +28,10 @@ export const HeaderStyled = styled.div`
   padding: 10px 20px;
   align-items: center;
   border-bottom: 1px solid ;
+  position: fixed;
+  z-index:10;
+  width: 100%;
+  top:0;
 `
 
 
@@ -134,4 +139,31 @@ export const Button = styled.button`
     border:none;
     opacity:0.9 ;
 }
+`
+
+
+export const PaginationComp = styled.div`
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+`
+
+export const Badge = styled.a<{active?: boolean}>`
+    background-color:${props=> props.active? '#7C1B5B' : 'transparent'};
+    color: ${props=>props.active ? "#fff": '#5F1478'};
+    padding: 5px 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: ${props=>props.active ? "#fff": '#5F1478'};
+    }
+    nav ul li button {
+      outline:none;
+      border:none;
+    }
 `
