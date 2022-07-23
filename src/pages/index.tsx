@@ -1,9 +1,10 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { DefaultLayout } from '../components/DefaultLayout';
 import Header from '../components/Header';
 import SearchComponent from '../components/SearchComponent';
-import { TextInter } from '../components/TextInter';
+import Icone from '../assets/icone.png';
+import { Button, ContainerFlex, Corpo, Text } from '../StyledComponents';
+import PokeCard from '../components/PokeCard';
 
 export default function Home() {
   return (
@@ -11,26 +12,18 @@ export default function Home() {
       <Header />
       <Corpo>
         <SearchComponent />
-        <ContainerFlex width='100%' jc='center'>
-          <ContainerFlex width='70%'>
-            <TextInter size='1.8rem' weight={500} >Resultados da pesquisa</TextInter>
+        <main style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <ContainerFlex width='70%' fd='column'>
+            <ContainerFlex width='100%' fd='row' ai="center" jc='space-between'>
+              <Text size='32px' weight={500} >Resultados da pesquisa</Text>
+              <Button>Novo Card</Button>
+            </ContainerFlex>
+            <ContainerFlex fw='wrap' mt='30px' width='100%' fd='row'>
+              <PokeCard image={Icone} desc="Lorem ipsum dolor sit amet consectetur" />
+            </ContainerFlex>
           </ContainerFlex>
-        </ContainerFlex>
-
+        </main>
       </Corpo>
     </DefaultLayout>
   )
 }
-
-const Corpo = styled.div`
-  grid-area: main;
-  background: #F6F4F6 0% 0% no-repeat padding-box;
-  opacity: 1;
-`
-
-const ContainerFlex = styled.main<{ width?: string; jc?: string }>`
-  display: flex;
-  justify-content:${props => props.jc};
-  width: ${props => props.width};
-  padding:10px ;
-`
