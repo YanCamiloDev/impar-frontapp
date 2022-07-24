@@ -68,7 +68,7 @@ export default function Home() {
           <ContainerFlex width='70%' fd='column'>
             <ContainerFlex width='100%' fw='wrap' fd='row' ai="center" jc='space-between'>
               <Text as={TextH1} size='32px' weight={500} >
-                {pokemonPesquisa ? 'Resultado da pesquisa' : 'Lista de Pokemóns'}
+                {pokemonPesquisa ? 'Resultado da pesquisa' : 'Lista de Pokémons'}
               </Text>
               {loading ? <Skeleton w='183px' h='60px' /> : <Button onClick={() => setInfoAlert('Função não implementada')}>Novo Pokemon</Button>}
             </ContainerFlex>
@@ -81,7 +81,7 @@ export default function Home() {
 
               {!loading && pokemons.length === 0 && (
                 <Text size='20px' mb='30%' weight={500} mt="20px" color="#263238" >
-                  Nenhum pokemón encontrado :(
+                  Nenhum pokémon encontrado :(
                 </Text>
               )}
               {pokemons.map((item, index) => {
