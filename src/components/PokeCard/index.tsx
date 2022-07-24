@@ -11,7 +11,8 @@ export default function PokeCard(props: PokeCardProps) {
 
   return (
     <Card pb='100px'>
-      <img src={props.image} style={{ borderRadius: '50%', marginTop: '15%' }} />
+      {/* Adicionando carregamento por demanda nas imagens */}
+      <img loading='lazy' src={props.image} style={{ borderRadius: '50%', marginTop: '15%' }} />
       <Text ta='center' lh="22px" mt='20px' color='#263238'>{props.desc}</Text>
       <BottomButtons>
         <IconButton>

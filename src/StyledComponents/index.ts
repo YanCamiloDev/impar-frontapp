@@ -65,7 +65,7 @@ export const BottomButtons = styled.div`
   overflow: hidden;
 `
 
-export const Text = styled.p<{ta?:string; lh?:string;color?: PRIMARY_COLOR | ALT_COLOR; size?: string; weight?: number; mt?:string;}>`
+export const Text = styled.p<{mb?:string; ta?:string; lh?:string;color?: PRIMARY_COLOR | ALT_COLOR; size?: string; weight?: number; mt?:string;}>`
   font-family: Inter, sans-serif;
   font-size: ${props => props.size ? props.size : '1rem'};
   font-weight: ${props => props.weight ? props.weight : 500};
@@ -73,6 +73,7 @@ export const Text = styled.p<{ta?:string; lh?:string;color?: PRIMARY_COLOR | ALT
   letter-spacing: 0px;
   opacity: 1;
   margin-top:${props => props.mt};
+  margin-bottom:${props => props.mb};
   line-height: ${props=>props.lh? props.lh : '35px'};
   text-align: ${props=> props.ta? props.ta: 'left'} ;
 `

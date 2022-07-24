@@ -7,7 +7,8 @@ import api from '../services';
 import { AllDataPokemons, Pokemon } from '../types';
 import axios from 'axios';
 import { Pagination } from '@mui/material';
-// import Pagination from '../components/Pagination';
+const ROWS_PER_PAGE = 15
+
 export default function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [page, setPage] = useState(1);
@@ -17,7 +18,7 @@ export default function Home() {
   async function getPokemons() {
     try {
       setLoading(true)
-      const list = await api.get(`/pokemon/?limit=12&offset=${page * 10}`);
+      const list = await api.get(`/pokemon/?limit=12&offset=${page * ROWS_PER_PAGE}`);
       const data = list.data as AllDataPokemons;
       setCount(data.count);
       let array = [];
@@ -63,6 +64,13 @@ export default function Home() {
                   <Skeleton key={`sk-${index}`} />
                 )
               })}
+
+              {!loading && pokemons.length === 0 && (
+                <Text size='20px' mb='30%' weight={500} mt="20px" color="#263238" >
+                  Nenhum pokemón encontrado :(
+                </Text>
+
+              )}
               {pokemons.map((item, index) => {
                 return (
                   <PokeCard
@@ -74,7 +82,7 @@ export default function Home() {
             </ContainerFlex>
             <PaginationComp>
               <Pagination
-                count={Math.ceil(count / 12)}
+                count={Math.ceil(count / ROWS_PER_PAGE)}
                 page={page}
                 onChange={handleChangePage}
                 color="primary"
