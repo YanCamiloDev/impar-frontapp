@@ -2,14 +2,11 @@
   "name": "impar-frontapp",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://YanCamiloDev.github.io/impar-frontapp",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
