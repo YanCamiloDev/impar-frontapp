@@ -7,6 +7,7 @@ import api from '../services';
 import { AllDataPokemons, Pokemon } from '../types';
 import axios from 'axios';
 import { Pagination } from '@mui/material';
+import AlertInfo from '../components/AlertInfo';
 const ROWS_PER_PAGE = 15
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [infoAlert, setInfoAlert] = useState('');
 
   async function getPokemons() {
     try {
@@ -49,15 +51,16 @@ export default function Home() {
       <Corpo>
         <SearchComponent />
         <main style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <AlertInfo
+            infoAlert={infoAlert}
+            setInfoAlert={setInfoAlert} />
           <ContainerFlex width='70%' fd='column'>
             <ContainerFlex width='100%' fw='wrap' fd='row' ai="center" jc='space-between'>
               <Text as={TextH1} size='32px' weight={500} >
-                {/* Resultados da pesquisa */}
                 Lista de Pokemóns
               </Text>
-              {loading ? <Skeleton w='183px' h='60px' /> : <Button>Novo Pokemon</Button>}
+              {loading ? <Skeleton w='183px' h='60px' /> : <Button onClick={() => setInfoAlert('Função não implementada')}>Novo Pokemon</Button>}
             </ContainerFlex>
-            {/* <Pagination /> */}
             <ContainerFlex centerOnMobile={true} fw='wrap' mt='30px' width='100%' fd='row'>
               {loading && [...Array(10).keys()].map((item, index) => {
                 return (
@@ -69,14 +72,15 @@ export default function Home() {
                 <Text size='20px' mb='30%' weight={500} mt="20px" color="#263238" >
                   Nenhum pokemón encontrado :(
                 </Text>
-
               )}
               {pokemons.map((item, index) => {
                 return (
                   <PokeCard
                     key={`pokemon-${index}`}
                     image={item.sprites.front_default}
-                    desc={item.name} />
+                    desc={item.name}
+                    alertInfo={setInfoAlert}
+                  />
                 )
               })}
             </ContainerFlex>

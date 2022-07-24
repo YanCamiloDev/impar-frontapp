@@ -5,6 +5,7 @@ import EditIcon from '../../assets/Icon-edit.png';
 type PokeCardProps = {
   image: string;
   desc: string;
+  alertInfo: (t: string) => void;
 }
 
 export default function PokeCard(props: PokeCardProps) {
@@ -15,11 +16,11 @@ export default function PokeCard(props: PokeCardProps) {
       <img loading='lazy' src={props.image} style={{ borderRadius: '50%', marginTop: '15%' }} />
       <Text ta='center' lh="22px" mt='20px' color='#263238'>{props.desc}</Text>
       <BottomButtons>
-        <IconButton>
+        <IconButton onClick={() => props.alertInfo('Função não implementada')}>
           <img src={TrashIcon} />
           <Text lh="22px" size='15px' color='#263238'>Excluir</Text>
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => props.alertInfo('Função não implementada')}>
           <img src={EditIcon} />
           <Text lh="22px" size='15px' color='#263238'>Editar</Text>
         </IconButton>
