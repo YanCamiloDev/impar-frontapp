@@ -21,7 +21,7 @@ export default function Home() {
   async function getAllPokemons() {
     try {
       setLoading(true)
-      const list = await api.get(`/pokemon/?limit=12&offset=${page * ROWS_PER_PAGE}`);
+      const list = await api.get(`/pokemon/?limit=${ROWS_PER_PAGE}&offset=${page * ROWS_PER_PAGE}`);
       const data = list.data as AllDataPokemons;
       setCount(data.count);
       let array = [];
