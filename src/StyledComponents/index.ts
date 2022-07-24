@@ -8,7 +8,7 @@ export const DefaultLayout = styled.div`
   grid-template-areas:
     "header"
     "main";
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: auto 9fr;
   grid-template-columns: 100vw;
 `
 

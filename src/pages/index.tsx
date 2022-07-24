@@ -39,7 +39,7 @@ export default function Home() {
   async function searchPokemon() {
     try {
       setLoading(true)
-      const list = await api.get(`/pokemon/${pokemonPesquisa}`);
+      const list = await api.get(`/pokemon/${pokemonPesquisa?.trim().toLowerCase()}`);
       setPokemons([list.data])
       setLoading(false)
     } catch (error) {
