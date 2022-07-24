@@ -8,6 +8,7 @@ import { AllDataPokemons, Pokemon } from '../types';
 import axios from 'axios';
 import { Pagination } from '@mui/material';
 import AlertInfo from '../components/AlertInfo';
+import { useParams } from 'react-router-dom';
 const ROWS_PER_PAGE = 15
 
 export default function Home() {
@@ -16,8 +17,8 @@ export default function Home() {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [infoAlert, setInfoAlert] = useState('');
-
-  async function getPokemons() {
+  let { pokemonPesquisa } = useParams();
+  async function getAllPokemons() {
     try {
       setLoading(true)
       const list = await api.get(`/pokemon/?limit=12&offset=${page * ROWS_PER_PAGE}`);
@@ -34,11 +35,21 @@ export default function Home() {
       setLoading(false)
     }
   }
+
+  async function searchPokemon() {
+    try {
+      setLoading(true)
+      const list = await api.get(`/pokemon/${pokemonPesquisa}`);
+      setPokemons([list.data])
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      setPokemons([])
+    }
+  }
   useEffect(() => {
-    getPokemons()
-  }, [page])
-
-
+    pokemonPesquisa ? searchPokemon() : getAllPokemons()
+  }, [page, pokemonPesquisa])
 
   function handleChangePage(event: React.ChangeEvent<unknown>, value: number) {
     setPage(value)
@@ -57,7 +68,7 @@ export default function Home() {
           <ContainerFlex width='70%' fd='column'>
             <ContainerFlex width='100%' fw='wrap' fd='row' ai="center" jc='space-between'>
               <Text as={TextH1} size='32px' weight={500} >
-                Lista de Pokemóns
+                {pokemonPesquisa ? 'Resultado da pesquisa' : 'Lista de Pokemóns'}
               </Text>
               {loading ? <Skeleton w='183px' h='60px' /> : <Button onClick={() => setInfoAlert('Função não implementada')}>Novo Pokemon</Button>}
             </ContainerFlex>
@@ -84,14 +95,17 @@ export default function Home() {
                 )
               })}
             </ContainerFlex>
-            <PaginationComp>
-              <Pagination
-                count={Math.ceil(count / ROWS_PER_PAGE)}
-                page={page}
-                onChange={handleChangePage}
-                color="primary"
-              />
-            </PaginationComp>
+            {!pokemonPesquisa && (
+              <PaginationComp>
+                <Pagination
+                  count={Math.ceil(count / ROWS_PER_PAGE)}
+                  page={page}
+                  onChange={handleChangePage}
+                  color="primary"
+                />
+              </PaginationComp>
+            )}
+
           </ContainerFlex>
         </main>
       </Corpo>
