@@ -21,7 +21,9 @@ export default function SearchComponent() {
           value={pesquisa}
 
           placeholder='Digite aqui sua busca' />
-        <img src={LupaIcon} style={{ objectFit: 'contain', width: '30px', height: '30px' }} />
+        <button type='submit' style={{ padding: 0, outline: 'none', border: 'none', backgroundColor: 'transparent' }}>
+          <img src={LupaIcon} style={{ objectFit: 'contain', width: '30px', height: '30px' }} />
+        </button>
       </ContainerInput>
     </BoxSearch>
   )
