@@ -10,7 +10,7 @@ export default function SearchComponent() {
   const [pesquisa, setInputPesquisa] = React.useState(pokemonPesquisa ? pokemonPesquisa : '');
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    naviagate(`/${pesquisa}`)
+    naviagate(`${pesquisa}`)
   }
   return (
     <BoxSearch>

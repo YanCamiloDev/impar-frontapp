@@ -5,8 +5,9 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path=":pokemonPesquisa" element={<Home />} />
-        <Route path="/" element={<Home />} />
+        <Route path={import.meta.env.BASE_URL} element={<Home />} >
+          <Route path=":pokemonPesquisa" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

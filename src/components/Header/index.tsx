@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <HeaderStyled>
-      <Link to='/'>
+      <Link to={import.meta.env.BASE_URL}>
         <img src={TesteImg} />
       </Link>
     </HeaderStyled>
