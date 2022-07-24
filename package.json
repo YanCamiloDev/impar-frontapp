@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "yarn build && git add dist -f && git commit -m'hosting'  && git subtree push --prefix dist origin gh-pages"
+    "deploy": "yarn build && git add dist -f && git commit -m'hosting' && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
