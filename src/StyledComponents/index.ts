@@ -171,32 +171,21 @@ export const PaginationComp = styled.div`
     justify-content: center;
     align-items: center;
     gap:10px;
+    button:focus {
+      outline: none;
+      border:none ;
+    }
+    
 `
 
-export const Badge = styled.a<{active?: boolean}>`
-    background-color:${props=> props.active? '#7C1B5B' : 'transparent'};
-    color: ${props=>props.active ? "#fff": '#5F1478'};
-    padding: 5px 12px;
-    border-radius: 50%;
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-      color: ${props=>props.active ? "#fff": '#5F1478'};
-    }
-    nav ul li button {
-      outline:none;
-      border:none;
-    }
-`
-
-  const skeletonKeyframes = keyframes`
-    0% {
-      background-position: -200px 0;
-    }
-    100% {
-      background-position: calc(200px + 100%) 0;
-    }
-  `;
+const skeletonKeyframes = keyframes`
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+`;
 
 export const Skeleton = styled.span<{h?:string; w?:string}>`
     display: inline-block;

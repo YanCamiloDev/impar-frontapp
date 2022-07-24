@@ -50,8 +50,11 @@ export default function Home() {
         <main style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <ContainerFlex width='70%' fd='column'>
             <ContainerFlex width='100%' fw='wrap' fd='row' ai="center" jc='space-between'>
-              <Text as={TextH1} size='32px' weight={500} >Resultados da pesquisa</Text>
-              {loading ? <Skeleton w='183px' h='60px' /> : <Button>Novo Card</Button>}
+              <Text as={TextH1} size='32px' weight={500} >
+                {/* Resultados da pesquisa */}
+                Lista de Pokemóns
+              </Text>
+              {loading ? <Skeleton w='183px' h='60px' /> : <Button>Novo Pokemon</Button>}
             </ContainerFlex>
             {/* <Pagination /> */}
             <ContainerFlex centerOnMobile={true} fw='wrap' mt='30px' width='100%' fd='row'>
