@@ -70,7 +70,7 @@ export default function Home() {
               <Text as={TextH1} size='32px' weight={500} >
                 {pokemonPesquisa ? 'Resultado da pesquisa' : 'Lista de Pokémons'}
               </Text>
-              {loading ? <Skeleton w='183px' h='60px' /> : <Button onClick={() => setInfoAlert('Função não implementada')}>Novo Pokemon</Button>}
+              {loading ? <Skeleton w='183px' h='60px' /> : <Button onClick={() => setInfoAlert('Função não implementada')}>Novo Pokémon</Button>}
             </ContainerFlex>
             <ContainerFlex centerOnMobile={true} fw='wrap' mt='30px' width='100%' fd='row'>
               {loading && [...Array(10).keys()].map((item, index) => {
