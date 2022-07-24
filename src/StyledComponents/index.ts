@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 type PRIMARY_COLOR = '#5F1478';
 type ALT_COLOR = '#263238';
 
@@ -35,7 +35,7 @@ export const HeaderStyled = styled.div`
 `
 
 
-export const ContainerFlex = styled.div<{ ai?: string; mt?: string; width?: string; fw?: string; jc?: string; fd?: string }>`
+export const ContainerFlex = styled.div<{centerOnMobile?:boolean; ai?: string; mt?: string; width?: string; fw?: string; jc?: string; fd?: string }>`
   display: flex;
   justify-content:${props => props.jc};
   width: ${props => props.width};
@@ -45,6 +45,11 @@ export const ContainerFlex = styled.div<{ ai?: string; mt?: string; width?: stri
   margin-top: ${props => props.mt};
   align-items: ${props => props.ai};
   overflow: hidden;
+
+  @media (max-width: 550px) {
+    width: ${props=> props.centerOnMobile ? '100%':'90%'};
+    justify-content: ${props=> props.centerOnMobile ? 'center': 'left'};
+  }
 `
 
 export const BottomButtons = styled.div`
@@ -70,6 +75,13 @@ export const Text = styled.p<{ta?:string; lh?:string;color?: PRIMARY_COLOR | ALT
   margin-top:${props => props.mt};
   line-height: ${props=>props.lh? props.lh : '35px'};
   text-align: ${props=> props.ta? props.ta: 'left'} ;
+`
+
+export const TextH1 = styled.h1`
+  ${Text}
+  @media (max-width:450px) {
+    font-size: 1.5rem !important;
+  }
 `
 
 
@@ -117,6 +129,7 @@ export const IconButton = styled.button`
 export const Button = styled.button`
   font-family: Inter, sans-serif;
   width: 173px;
+  min-width: 133px;
   min-height: 48px;
   max-height: 60px;
   background: var(---cor-destaque) 0% 0% no-repeat padding-box;
@@ -138,6 +151,14 @@ export const Button = styled.button`
     outline: none;
     border:none;
     opacity:0.9 ;
+}
+@media (max-width: 845px) {
+    margin-top: 20px !important;
+}
+
+@media (max-width: 455px) {
+  font-size: 0.8rem ;
+  width: 140px ;
 }
 `
 
@@ -166,4 +187,32 @@ export const Badge = styled.a<{active?: boolean}>`
       outline:none;
       border:none;
     }
+`
+
+  const skeletonKeyframes = keyframes`
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  `;
+
+export const Skeleton = styled.span<{h?:string; w?:string}>`
+    display: inline-block;
+    width: ${props=> props.w ? props.w : '260px'};
+    /* min-height: ${props => props.w? props.w : '267px'}; */
+    height: ${props => props.h? props.h : '267px'};
+    animation: ${skeletonKeyframes} 1300ms ease-in-out infinite;
+    background-color: #e7e2e2;
+    background-image: linear-gradient(
+    90deg,
+    #e7e2e2,
+    #f5f5f5,
+    #e7e2e2
+    );
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    margin:20px;
 `

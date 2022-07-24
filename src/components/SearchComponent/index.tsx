@@ -59,4 +59,13 @@ const Input = styled.input`
         outline: none;
         border:none;
     }
+
+    @media (max-width: 550px) {
+        font-size: 1rem;
+
+        & + img {
+          width: 23px !important;
+          height: 23px !important;
+        }
+    }
 `
