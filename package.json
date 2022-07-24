@@ -2,7 +2,7 @@
   "name": "impar-frontapp",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://yancamilodev.github.io/impar-frontapp/",
+  "homepage": "https://YanCamiloDev.github.io/impar-frontapp",
   "type": "module",
   "scripts": {
     "dev": "vite",
