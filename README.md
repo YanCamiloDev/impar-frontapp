@@ -2,7 +2,7 @@
 
 > App criado por Yan Souza Camilo.
 
-<!-- > Disponível em: https://yancamilodev.github.io/impar-frontapp/ -->
+> Disponível em: https://yancamilodev.github.io/impar-frontapp/
 
 #
 
@@ -14,6 +14,6 @@
 
 ## VISUALIZAÇÃO DO PROJETO:
 
-<!-- - OPÇÃO 01: Acesse o site publicado no endereço: https://yancamilodev.github.io/impar-frontapp/ -->
+- OPÇÃO 01: Acesse o site publicado no endereço: https://yancamilodev.github.io/impar-frontapp/
 
-- Realize os passos de execução e posteriormente abra um navegador em http://localhost:3001/impar-frontapp/
+- OPÇÃO 02: Realize os passos de execução e posteriormente abra um navegador em http://localhost:3001/impar-frontapp/
